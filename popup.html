@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+:root{--bg:#0a0e1a;--card:#131a2e;--acc:#6c8cff;--acc2:#33e1a1;--txt:#e6ecff;--mut:#8a97b8}
+*{box-sizing:border-box}body{width:340px;margin:0;font:14px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--txt)}
+.wrap{padding:14px}
+.top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.top img{width:32px;height:32px}.top b{font-size:16px;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+select,input,button{font:14px system-ui;border-radius:8px}
+select{background:var(--card);color:var(--txt);border:1px solid #2a3450;padding:7px;width:100%;margin-bottom:8px}
+.card{background:var(--card);border:1px solid #1e2740;border-radius:12px;padding:14px;margin-bottom:10px}
+.bal{font-size:26px;color:var(--acc2);font-weight:700}.bal span{font-size:14px;color:var(--mut)}
+.addr{font-size:11px;color:var(--mut);word-break:break-all;cursor:pointer}
+input{width:100%;background:#0c1424;border:1px solid #2a3450;color:var(--txt);padding:9px;margin:5px 0}
+button{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#06121f;border:none;padding:10px;font-weight:700;cursor:pointer;width:100%}
+button.sec{background:#1c2540;color:var(--txt);border:1px solid #2a3450}
+.row{display:flex;gap:6px}.row button{margin-top:4px}
+#msg{font-size:12px;min-height:16px;margin-top:6px}
+.mut{color:var(--mut);font-size:12px}.warn{color:#f0c060;font-size:11px}
+a{color:var(--acc)}h4{margin:6px 0;color:var(--acc)}
+.hide{display:none}
+</style></head><body><div class="wrap">
+<div class="top"><img src="logo.png"><b>Krishnala Wallet</b></div>
+<select id="net">
+  <option value="testnet">🧪 Krishnala Testnet (713714)</option>
+  <option value="mainnet">🌐 Krishnala Mainnet (soon)</option>
+</select>
+
+<div id="setup" class="card hide">
+  <h4>Setup Wallet</h4>
+  <button id="create">Create new wallet</button>
+  <div class="mut" style="text-align:center;margin:6px 0">— or —</div>
+  <input id="importpk" placeholder="Import private key (0x...)">
+  <button class="sec" id="import">Import</button>
+</div>
+
+<div id="main" class="hide">
+  <div class="card">
+    <div class="bal"><span id="balance">0</span> <span>KRIS</span></div>
+    <div class="addr" id="addr" title="Click to copy"></div>
+    <div class="row"><button class="sec" id="refresh">↻ Refresh</button><button class="sec" id="faucet">💧 Faucet</button></div>
+  </div>
+  <div class="card">
+    <h4>Send KRIS</h4>
+    <input id="to" placeholder="To 0x...">
+    <input id="amt" placeholder="Amount (KRIS)" type="number">
+    <button id="send">Send</button>
+  </div>
+  <div class="card">
+    <div class="row"><button class="sec" id="addmm">Add to MetaMask</button><button class="sec" id="showpk">Show key</button></div>
+    <div id="pk" class="warn hide" style="word-break:break-all;margin-top:6px"></div>
+  </div>
+  <div id="msg"></div>
+  <div class="mut" style="text-align:center;margin-top:6px"><a href="https://krishnala.com" target="_blank">krishnala.com</a> · <a href="https://explorer.krishnala.com" target="_blank">Explorer</a></div>
+</div>
+
+<script src="ethers.umd.min.js"></script>
+<script src="popup.js"></script>
+</div></body></html>
