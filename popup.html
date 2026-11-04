@@ -26,10 +26,20 @@ a{color:var(--acc)}h4{margin:6px 0;color:var(--acc)}
 
 <div id="setup" class="card hide">
   <h4>Setup Wallet</h4>
+  <input id="newpw" type="password" placeholder="New password (min 8)" autocomplete="new-password">
+  <input id="newpw2" type="password" placeholder="Repeat password" autocomplete="new-password">
+  <div class="mut">Your key is encrypted with this password (AES-GCM). It cannot be recovered if you forget it.</div>
   <button id="create">Create new wallet</button>
   <div class="mut" style="text-align:center;margin:6px 0">— or —</div>
-  <input id="importpk" placeholder="Import private key (0x...)">
+  <input id="importpk" type="password" autocomplete="off" placeholder="Import private key (0x...)">
   <button class="sec" id="import">Import</button>
+</div>
+
+<div id="unlock" class="card hide">
+  <h4>Unlock Wallet</h4>
+  <div id="legacy" class="warn hide">Your key is stored unencrypted from an older version. Set a password (min 8) to encrypt it.</div>
+  <input id="unlockpw" type="password" placeholder="Password" autocomplete="current-password">
+  <button id="unlockbtn">Unlock</button>
 </div>
 
 <div id="main" class="hide">
@@ -45,8 +55,7 @@ a{color:var(--acc)}h4{margin:6px 0;color:var(--acc)}
     <button id="send">Send</button>
   </div>
   <div class="card">
-    <div class="row"><button class="sec" id="addmm">Add to MetaMask</button><button class="sec" id="showpk">Show key</button></div>
-    <div id="pk" class="warn hide" style="word-break:break-all;margin-top:6px"></div>
+    <div class="row"><button class="sec" id="addmm">Add to MetaMask</button><button class="sec" id="showpk">Copy key</button><button class="sec" id="lock">🔒 Lock</button></div>
   </div>
   <div id="msg"></div>
   <div class="mut" style="text-align:center;margin-top:6px"><a href="https://krishnala.com" target="_blank">krishnala.com</a> · <a href="https://explorer.krishnala.com" target="_blank">Explorer</a></div>
